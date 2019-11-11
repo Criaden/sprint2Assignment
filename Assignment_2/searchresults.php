@@ -2,7 +2,6 @@
 
 require_once("DB.class.php");
 require_once("Template.php");
-require_once("search.php");
 
 $db = new DB();
  
@@ -21,13 +20,14 @@ $result = $db->dbCall($query);
 
 
 $page = new Template("My Page");
+$page->addHeadElement("<link rel=\"stylesheet\" href=\"styles.css\">");
 $page->addHeadElement("<script src='hello.js'></script>");
 $page->finalizeTopSection();
 $page->finalizeBottomSection();
 
 print $page->getTopSection();
 
-		/*print "<div class= \"top\">";
+		print "<div class= \"top\">";
 			print "<h1> Assignment 1 - CIS 310 </h1>";
 	
 			print "<div class=\"topnavbar\">";
@@ -38,7 +38,7 @@ print $page->getTopSection();
 					print "<li><a href=\"search.php\">Search</a></li>";
 				print "</ul>";
 			print "</div>";
-		print "</div>";*/
+		print "</div>";
 
 		if (!$result) {
             

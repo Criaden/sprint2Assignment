@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once("DB.class.php");
 require_once("Template.php");
 
@@ -14,7 +14,7 @@ $search = $_POST["search"];
 
 $search = strtolower($search);
 
-$query = "SELECT  id, artist, album FROM albuminfo WHERE LOWER(id) = '$search' OR LOWER(artist) = '$search' OR LOWER(album) = '$search'";
+$query = "SELECT  id, artist, album, link FROM albuminfo WHERE LOWER(id) = '$search' OR LOWER(artist) = '$search' OR LOWER(album) = '$search'";
 
 $result = $db->dbCall($query);
 
@@ -28,14 +28,27 @@ $page->finalizeBottomSection();
 print $page->getTopSection();
 
 		print "<div class= \"top\">";
-			print "<h1> Assignment 1 - CIS 310 </h1>";
+			print "<h1> Sprint 3 - CIS 310 </h1>";
 	
 			print "<div class=\"topnavbar\">";
 				print "<ul>";
 					print "<li><a href=\"index.php\">Home</a></li>";
-					print "<li><a href=\"survey.php\" class= 'active'>Survey</a></li>";
+					print "<li><a href=\"survey.php\">Survey</a></li>";
 					print "<li><a href=\"privacy.php\">Privacy</a></li>";
-					print "<li><a href=\"search.php\">Search</a></li>";
+					print "<li><a href=\"search.php\" class= 'active'>Search</a></li>";
+					if(isset($_SESSION['role'])){
+						if($_SESSION['role'] == 'admin'){
+							print "<li><a href=\"admin.php\">Admin</a></li>";
+						}
+					}
+					if(isset($_SESSION['username'])){
+						print "<li><a href=\"logout.php\">Logout</a></li>";
+					}else{
+						print "<li><a href=\"login.php\">Login</a></li>";
+					}
+					if(isset($_SESSION['username'])){
+						print "<li>Welcome, ".$_SESSION['username']."</li>";
+					}
 				print "</ul>";
 			print "</div>";
 		print "</div>";
@@ -55,6 +68,7 @@ print $page->getTopSection();
 				print("<th>ID</th>");
 				print("<th>Artist</th>");
 				print("<th>Album Name</th>");
+				print("<th>Link</th>");
 			print("</tr>");
 
 			

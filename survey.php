@@ -36,9 +36,15 @@ print $page->getTopSection();
 			print "</div>";
 		print "</div>";
 		
+        print "<div class=\"center\">";
+
+		print "<h1> Survey Page";
+
+        print "</div>";
+
 		print "<form name= \"survey\" method= \"POST\" onsubmit= \"return checkSubmitted()\" action= \"submitted.php\">";
 			print "Email:<br>";
-			print "<input type=\"text\" name=\"userEmail\" id= \"email\"><br>";
+			print "<input type=\"text\" name=\"userEmail\" placeholder=\"Email:\" id= \"email\"><br>";
 			
 			print "<br>";
 			

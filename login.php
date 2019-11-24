@@ -70,9 +70,16 @@ print $page->getTopSection();
 			header("Location: index.php");
 		}else if(!isset($_SESSION['username']) && !isset($_SESSION['password'])){
 			print "<form name= \"login\" method= \"POST\">";
-				print "Login: <br>";
-				print "<input type=\"text\" name=\"username\"><br>";
-				print "<input type=\"password\" name=\"password\"><br>";
+				
+                print "<div class=\"center\">";
+
+		        print "<h1> Login Page";
+
+                print "</div>";
+            
+                print "Login: <br>";
+				print "<input type=\"text\" name=\"username\" placeholder=\"Username:\"><br>";
+				print "<input type=\"password\" name=\"password\" placeholder=\"Password:\"><br>";
 			
 				print "<input type=\"submit\" name=\"login\" value=\"Login\">";
 			print "</form>";

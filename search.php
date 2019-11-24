@@ -37,10 +37,15 @@ print $page->getTopSection();
 		print "</div>";
 		
 
+        print "<div class=\"center\">";
+
+		print "<h1> Album Search Page";
+
+        print "</div>";
+
 		print "<form name= \"search\" method= \"POST\" action= \"searchresults.php\">";
 			print "Search: <br>";
-			print "<input type=\"text\" name=\"search\"><br>";
-			
+			print "<input type=\"text\" name=\"search\" placeholder=\"Please enter an album:\"><br>";
 			print "<input type=\"submit\" name=\"submit\" value=\"Search\">";
 		print "</form>";
 		

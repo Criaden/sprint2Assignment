@@ -5,6 +5,7 @@ body {
 	padding: 0;
 	color: #7d8fd7;
 }
+
 h1 {
 	color: gray;
 }
@@ -88,7 +89,7 @@ td, th {
 }
 
 tr:nth-child(even) {
-  background-color: purple;
+  background-color: #dddddd;
 }
 
 form {
@@ -103,8 +104,17 @@ button{
 	padding: 3px 3px 3px 3px;
 }
 
+button, input, select, textarea {
+  font-family : inherit;
+  font-size   : 100%;
+}
+
+div.center {
+  text-align: center;
+}
+
 input[type=submit] {
-  background-color: #9900ff;
+  background-color: gray;
   border: none;
   color: white;
   padding: 10px 25px;

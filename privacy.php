@@ -36,6 +36,8 @@ print $page->getTopSection();
 			print "</div>";
 		print "</div>";
 		
+        print "<div class=\"center\">";
+
 		print "<h1>Privacy Policy</h1>";
 		
 		
@@ -59,6 +61,8 @@ print $page->getTopSection();
 		
 		print "<p>If you have any questions about this privacy statement, the practices of this site, or your use of this website, please contact Webmaster.</p>";
 		
+
+        print "</div>";
 
 print $page->getBottomSection();
 ?>

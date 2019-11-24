@@ -40,7 +40,11 @@ print $page->getTopSection();
 			print "</div>";
 		print "</div>";
 		
+        print "<div class=\"center\">";
+
 		print "<h1 id= \"bodyMain\"> Welcome to Assignment 2, Sprint 3!</h1>";
+
+        print "</div>";
 
 print $page->getBottomSection();
 ?>

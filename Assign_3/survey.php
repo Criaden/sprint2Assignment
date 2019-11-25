@@ -36,10 +36,7 @@ print $page->getTopSection();
 		print "</div>";
 		
 		
-		unset($_SESSION["email"]);
-		unset($_SESSION["major"]);
-		unset($_SESSION["grade"]);
-		unset($_SESSION["pizza"]);
+		
 
 
 

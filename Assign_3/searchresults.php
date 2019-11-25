@@ -10,7 +10,7 @@ if(!$db->getConnStatus()){
 	exit;
 }
 
-$search = $_POST["search"];
+$search = $_SESSION["search"];
 
 $search = strtolower($search);
 

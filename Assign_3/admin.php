@@ -91,6 +91,7 @@ $userGrade = strtolower($userGrade);
 $userPizza = strtolower($userPizza);
 $query = "INSERT INTO surveyTable(submittime, email, major, grade, pizzatype) VALUES(NOW(), '$userEmail', '$userMajor', '$userGrade', '$userPizza');";
 
+$db->dbCall($query);
 
 $queryShow = "SELECT * FROM surveytable";
 
@@ -116,6 +117,8 @@ print("<table>");
 				
 				print("</tr>");
 			}
+
+
 			
 print("</table>");
 print $page->getBottomSection();

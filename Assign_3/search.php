@@ -43,7 +43,28 @@ print $page->getTopSection();
 
         print "</div>";
 
-		print "<form name= \"search\" method= \"POST\" action= \"searchresults.php\">";
+
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+				if(empty($_POST["search"]) == true){
+					$emailERR = "Invalid Search<br>";
+				}else{
+					$email = test_input($_POST["search"]);
+					$_SESSION["search"] = test_input($_POST["search"]);
+				}
+				if(isset($_SESSION["search"])){
+					header("Location: searchresults.php");
+				}
+		}
+		
+		function test_input($data){
+			$data = trim($data);
+			$data = stripslashes($data);
+			$data = htmlspecialchars($data);
+			return $data;
+		}
+
+
+		print "<form name= \"search\" method= \"POST\" action=". htmlspecialchars($_SERVER['PHP_SELF']) .">";
 			print "Search: <br>";
 			print "<input type=\"text\" name=\"search\" placeholder=\"Please enter an album:\"><br>";
 			print "<input type=\"submit\" name=\"submit\" value=\"Search\">";

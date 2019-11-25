@@ -73,7 +73,7 @@ print $page->getTopSection();
 				
                 print "<div class=\"center\">";
 
-		        print "<h1> Login Page";
+		        print "<h1> Login Page</h1>";
 
                 print "</div>";
             

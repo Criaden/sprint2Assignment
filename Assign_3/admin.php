@@ -47,6 +47,51 @@ if(!$db->getConnStatus()){
 	exit;
 }
 
+if(isset($_SESSION["major"]) === true){
+	$userMajor = $_SESSION["major"];
+}else{
+	print("<br>");
+	echo("Not a valid email address");
+	print("<br>");
+}
+if(isset($_SESSION["grade"]) === true){
+	$userGrade = $_SESSION["grade"];
+}else{
+	print("<br>");
+	echo("Not a valid email address");
+	print("<br>");
+}
+if(isset($_SESSION["pizza"]) === true){
+	$userPizza = $_SESSION["pizza"];
+}else{
+	print("<br>");
+	echo("Not a valid email address");
+	print("<br>");
+}
+if(isset($_SESSION["email"]) === true){
+	$userEmail = $_SESSION["email"];
+	if(filter_var($userEmail, FILTER_VALIDATE_EMAIL)){
+		echo("");
+	}else{
+		print("<br>");
+		echo("Not a valid email address");
+		print("<br>");
+	}
+			
+	$userEmail = filter_var($userEmail, FILTER_SANITIZE_EMAIL);
+}else{
+	print("<br>");
+	echo("Not a valid email address");
+	print("<br>");
+}
+		
+$userEmail = strtolower($userEmail);
+$userMajor = strtolower($userMajor);
+$userGrade = strtolower($userGrade);
+$userPizza = strtolower($userPizza);
+$query = "INSERT INTO surveyTable(submittime, email, major, grade, pizzatype) VALUES(NOW(), '$userEmail', '$userMajor', '$userGrade', '$userPizza');";
+
+
 $queryShow = "SELECT * FROM surveytable";
 
 $result = $db->dbCall($queryShow);

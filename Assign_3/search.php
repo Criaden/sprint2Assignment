@@ -1,4 +1,4 @@
-<?php
+   <?php
 session_start();
 require_once("Template.php");
 
@@ -39,7 +39,7 @@ print $page->getTopSection();
 
         print "<div class=\"center\">";
 
-		print "<h1> Album Search Page";
+		print "<h1> Album Search Page</h1>";
 
         print "</div>";
 

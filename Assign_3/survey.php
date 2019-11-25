@@ -36,40 +36,55 @@ print $page->getTopSection();
 		print "</div>";
 		
 		
+		unset($_SESSION["email"]);
+		unset($_SESSION["major"]);
+		unset($_SESSION["grade"]);
+		unset($_SESSION["pizza"]);
+
+
+
+		
+		
 		$emailERR = $majorERR = $gradeERR = $pizzaERR = "";
 		$email = $major = $grade = $pizza = "";
 		
 	
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-				if(empty($_POST["userEmail"])){
+				if(empty($_POST["userEmail"]) == true){
 					$emailERR = "Email is required<br>";
 				}else{
 					$email = test_input($_POST["userEmail"]);
+					$_SESSION["email"] = test_input($_POST["userEmail"]);
 				}
 				
-				if(empty($_POST["userMajor"])){
+				if(empty($_POST["userMajor"]) == true){
 					$majorERR = "Major is required<br>";
 				}else{
-					$major = test_input($_POST["userMajor"]);				
+					$major = test_input($_POST["userMajor"]);
+					$_SESSION["major"] = test_input($_POST["userMajor"]);				
 				}	
 				
 				if(empty($_POST["userGrade"])){
 					$gradeERR = "Grade is required<br>";
 				}else{
 					$grade = test_input($_POST["userGrade"]);
+					$_SESSION["grade"] = test_input($_POST["userGrade"]);
 				}
 				
 				if(empty($_POST["userPizza"])){
 					$pizzaERR = "Pizza topping is required<br>";
 				}else{
 					$pizza = test_input($_POST["userPizza"]);
+					$_SESSION["pizza"] = test_input($_POST["userPizza"]);
 				}	
 				
-				if($email != "" && $major != "" && $grade != "" && $pizza != ""){
-					$url="submitted.php";
-					echo "<script type='text/javascript'>document.location.href='{$url}';</script>";
+				
+				if(isset($_SESSION["pizza"]) === TRUE && isset($_SESSION["grade"]) === TRUE && isset($_SESSION["major"]) === TRUE && isset($_SESSION["email"]) === TRUE){
+					header("Location: submitted.php");
+	
 				}
 		}
+		
 		
 		function test_input($data){
 			$data = trim($data);

@@ -47,7 +47,7 @@ print $page->getTopSection();
 
 		print "<div class=\"center\">";
 
-		print "<h1> You are now logged out";
+		print "<h1> You are now logged out</h1>";
 
         print "</div>";
 

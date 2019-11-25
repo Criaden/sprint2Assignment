@@ -31,11 +31,11 @@ print $page->getTopSection();
 					}else{
 						print "<li><a href=\"login.php\">Login</a></li>";
 					}
-					print "<div class=\"topwelcome\">";
+					
 					if(isset($_SESSION['username'])){
 						print "<li>Welcome, ".$_SESSION['username']."</li>";
 					}
-					print "</div>";
+					
 				print "</ul>";
 			print "</div>";
 		print "</div>";

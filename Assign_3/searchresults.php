@@ -55,12 +55,12 @@ print $page->getTopSection();
 
 		if (!$result) {
             
-            print "<br style = “line-height:200px;”>";
+            
   
 			print "You have submitted an invalid search, check for any misspelling in your search" . var_dump($db->getDBError());
 		} else {
             
-            print "<br style = “line-height:200px;”>";
+            
             
 			print("<table>");
 			
